@@ -8,7 +8,7 @@ TextUtils is a Text Analyzer website build in React JS ( react.js learning proje
 
 ### Created by - Vivek More
 
-**TextUtils** - [Live Link]()
+**TextUtils** - [Live Link](https://mrvivekmore-textutils.netlify.app/)
 
 ---
 
