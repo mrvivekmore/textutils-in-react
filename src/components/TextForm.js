@@ -7,6 +7,11 @@ const TextForm = (props) => {
     setText(event.target.value);
   }
 
+  function handleRemoveSpaces() {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  }
+
   function handleUpClick() {
     let newText = text.toUpperCase();
     setText(newText);
@@ -17,17 +22,28 @@ const TextForm = (props) => {
     setText(newText);
   }
 
+  function handleCpClick() {
+    let newText = text.replace(/(^|\.\s+)([a-z])/g, (match) =>
+      match.toUpperCase()
+    );
+
+    let newText2 = newText.replace(/(^|\?\s+)([a-z])/g, (match) =>
+      match.toUpperCase()
+    );
+
+    let newText3 = newText2.replace(/(^|\!\s+)([a-z])/g, (match) =>
+      match.toUpperCase()
+    );
+
+    setText(newText3);
+  }
+
   function handleResetClick() {
     setText("");
   }
 
   function handleCopyClick() {
     navigator.clipboard.writeText(text);
-  }
-
-  function handleRemoveSpaces() {
-    let newText = text.split(/[ ]+/);
-    setText(newText.join(" "));
   }
 
   return (
@@ -48,17 +64,20 @@ const TextForm = (props) => {
           />
         </div>
         <div className="mb-4">
+          <button className="btn btn-info me-2" onClick={handleRemoveSpaces}>
+            Remove Extra Spaces
+          </button>
           <button className="btn btn-primary me-2" onClick={handleUpClick}>
             UPPERCASE
           </button>
           <button className="btn btn-success me-2" onClick={handleLoClick}>
             lovercase
           </button>
+          <button className="btn btn-success m-2" onClick={handleCpClick}>
+            Capitalize
+          </button>
           <button className="btn btn-secondary me-2" onClick={handleCopyClick}>
             Copy to Clipboard
-          </button>
-          <button className="btn btn-info me-2" onClick={handleRemoveSpaces}>
-            Remove Extra Spaces
           </button>
           <button className="btn btn-warning me-2" onClick={handleResetClick}>
             Reset
