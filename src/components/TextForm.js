@@ -49,7 +49,7 @@ const TextForm = (props) => {
   return (
     <>
       <div className="container mt-4">
-        <h3>Enter text below to analyze</h3>
+        <h3 className="mb-2">Enter text below to Analyze</h3>
         <div className="mb-3">
           <textarea
             className="form-control"
@@ -64,32 +64,31 @@ const TextForm = (props) => {
           />
         </div>
         <div className="mb-4">
-          <button className="btn btn-info me-2" onClick={handleRemoveSpaces}>
+          <button className="btn btn-info m-2" onClick={handleRemoveSpaces}>
             Remove Extra Spaces
           </button>
-          <button className="btn btn-primary me-2" onClick={handleUpClick}>
+          <button className="btn btn-primary m-2" onClick={handleUpClick}>
             UPPERCASE
           </button>
-          <button className="btn btn-success me-2" onClick={handleLoClick}>
+          <button className="btn btn-warning m-2" onClick={handleLoClick}>
             lovercase
           </button>
           <button className="btn btn-success m-2" onClick={handleCpClick}>
             Capitalize
           </button>
-          <button className="btn btn-secondary me-2" onClick={handleCopyClick}>
+          <button className="btn btn-secondary m-2" onClick={handleCopyClick}>
             Copy to Clipboard
           </button>
-          <button className="btn btn-warning me-2" onClick={handleResetClick}>
+          <button className="btn btn-warning m-2" onClick={handleResetClick}>
             Reset
           </button>
         </div>
         <hr />
         <div className="mt-3">
-          <h4>Your text summary</h4>
-          <p>
-            {text.split(" ").length - 1} words & {text.length} characters
-          </p>
-          <p>{0.008 * (text.split(" ").length - 1)} minutes read</p>
+          <h4 className="mb-3">Your text summary</h4>
+          <p>Words: {text.trim().split(/\s+/).length}</p>
+          <p>Characters: {text.replace(/[^a-zA-Z]/g, "").length}</p>
+          <p>Sentences: {(text.match(/[.!?]/g) || []).length}</p>
         </div>
         <hr />
         <div className="mt-3">

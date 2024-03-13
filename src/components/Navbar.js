@@ -10,10 +10,10 @@ const Navbar = (props) => {
       >
         <div className="container">
           {/* <a className="navbar-brand" href="#">
-            TextUtils
+            TextAnalyzer
           </a> */}
           <NavLink to="/" className="navbar-brand">
-            TextUtils
+            Text Analyzer
           </NavLink>
           <button
             className="navbar-toggler"
